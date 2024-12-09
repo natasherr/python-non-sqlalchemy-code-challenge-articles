@@ -92,7 +92,7 @@ class Author:
         for article in articles:
             magazine_name = article.magazine
             # Adding the magazine name to the set
-            unique_magazines.append(magazine_name)
+            unique_magazines.add(magazine_name)
 
         # Converting the set to a list
         mag_list = list(unique_magazines)
@@ -177,7 +177,7 @@ class Magazine:
 
         for x in self.articles():
             # Adding the author to the set
-            unique_authors.append(x.author)
+            unique_authors.add(x.author)
         
         # Converting the st to a list
         auth_list = list(unique_authors)
