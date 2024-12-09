@@ -1,12 +1,14 @@
 class Article:
 
+    all=[]
 
     def __init__(self, author, magazine, title):
         self.author = author
         self.magazine = magazine
         self.title = title
+        Article.all.append(self)
+        
        
-    
     @property
     def title(self):
         return self._title
@@ -25,7 +27,6 @@ class Article:
                 
             else:
                 TypeError("Title MUST be a string")
-            
             
     @property
     def author(self):
@@ -54,7 +55,6 @@ class Article:
 class Author:
     def __init__(self, name):
         self.name = name
-        self.articles = []
 
     @property 
     def name (self):
@@ -83,7 +83,21 @@ class Author:
         return [article for article in Article.all if self == article.author]
 
     def magazines(self):
-        pass
+        # Getting all articles
+        articles = self.articles()
+
+        # Creating an empty set to store unique magazine names
+        unique_magazines = set()
+
+        for article in articles:
+            magazine_name = article.magazine
+            # Adding the magazine name to the set
+            unique_magazines.append(magazine_name)
+
+        # Converting the set to a list
+        mag_list = list(unique_magazines)
+
+        return mag_list
 
 
     def add_article(self, magazine, title):
@@ -137,7 +151,11 @@ class Magazine:
         
 
     def articles(self):
-        pass
+        matching_articles =[]
+        for article in Article.all:
+            if self == article.magazine:
+                matching_articles.append(article)
+        return matching_articles
 
     def contributors(self):
         pass
