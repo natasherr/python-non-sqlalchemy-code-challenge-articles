@@ -185,7 +185,11 @@ class Magazine:
         return auth_list
 
     def article_titles(self):
-        pass
+        list_of_titles = [{x.title for x in self.articles()}]
+        if list_of_titles == True:
+            return list_of_titles
+        else:
+            return None
 
     def contributing_authors(self):
         pass
