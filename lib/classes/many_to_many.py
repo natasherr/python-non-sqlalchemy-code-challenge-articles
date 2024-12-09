@@ -101,10 +101,25 @@ class Author:
 
 
     def add_article(self, magazine, title):
-        pass
+        article = Article(self,magazine,title)
+        return article
 
     def topic_areas(self):
-        pass
+        # Getting all the categories from magazines
+        mag_categories =[x.category for x in self.magazines()]
+
+        # creating a set to remove duplicates
+        unique_mag = set(mag_categories)
+
+        # Converting the set to a list
+        unique_list = list(unique_mag)
+
+        # If the author has contributed, return true
+        if unique_list == True:
+            return unique_list
+        # If there are no articles, return None
+        else:
+            return None
 
 
 
