@@ -101,8 +101,7 @@ class Author:
 
 
     def add_article(self, magazine, title):
-        article = Article(self, magazine, title)
-        self.articles.append(article)
+        pass
 
     def topic_areas(self):
         pass
@@ -151,15 +150,24 @@ class Magazine:
         
 
     def articles(self):
-        matching_articles =[]
+        the_articles =[]
         for article in Article.all:
             if self == article.magazine:
-                matching_articles.append(article)
-        return matching_articles
+                the_articles.append(article)
+        return the_articles
 
     def contributors(self):
-        pass
+        # An empty set that will hold unique authors
+        unique_authors = set()
 
+        for x in self.articles():
+            # Adding the author to the set
+            unique_authors.append(x.author)
+        
+        # Converting the st to a list
+        auth_list = list(unique_authors)
+
+        return auth_list
 
     def article_titles(self):
         pass
