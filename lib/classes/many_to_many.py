@@ -206,8 +206,10 @@ author_1.add_article(magazine_2, "Carrara Marble is so 2020")
 author_2.add_article(magazine_2, "2023 Eccentric Design Trends")
 
 
+print(f"{author_1.name}'s Articles: {[article.title for article in author_2.articles()]}")
 print(f"{author_2.name}'s Articles: {[article.title for article in author_2.articles()]}")
+print(f"{author_1.name}'s Magazines: {[magazine.name for magazine in author_2.magazines()]}")
 print(f"{author_2.name}'s Magazines: {[magazine.name for magazine in author_2.magazines()]}")
-print(f"{author_2.name}'s Topic Areas: {author_2.topic_areas()}")
+print(f"{author_1.name}'s Topic Areas: {author_2.topic_areas()}")
 print(f"Articles in {magazine_1.name}: {[article.title for article in magazine_1.articles()]}")
 print(f"Article Titles in {magazine_2.name}: {[article.title for article in magazine_2.articles()]}")
