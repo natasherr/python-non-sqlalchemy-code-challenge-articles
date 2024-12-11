@@ -17,6 +17,7 @@ class Article:
     def title(self, new_title):
         if hasattr(self, "title"):
             AttributeError("Title cannot be changed once it is set")
+            print("Title cannot be changed once it is set")
 
         else:
             if isinstance(new_title, str):
@@ -49,6 +50,7 @@ class Article:
             self._magazine = new_magazine
         else:
             TypeError("magazine must be an instance of the Magazine class")
+
 
 
 
@@ -120,8 +122,8 @@ class Author:
         # If there are no articles, return None
         else:
             return None
-
-
+    
+   
 
 class Magazine:
     def __init__(self, name, category):
@@ -193,3 +195,19 @@ class Magazine:
 
     def contributing_authors(self):
         pass
+
+
+author_1 = Author("Carry Bradshaw")
+author_2 = Author("Nathaniel Hawthorne")
+magazine_1 = Magazine("Vogue", "Fashion")
+magazine_2 = Magazine("AD", "Architecture")
+author_1.add_article(magazine_1, "How to wear a tutu with style")
+author_1.add_article(magazine_2, "Carrara Marble is so 2020")
+author_2.add_article(magazine_2, "2023 Eccentric Design Trends")
+
+
+print(f"{author_2.name}'s Articles: {[article.title for article in author_2.articles()]}")
+print(f"{author_2.name}'s Magazines: {[magazine.name for magazine in author_2.magazines()]}")
+print(f"{author_2.name}'s Topic Areas: {author_2.topic_areas()}")
+print(f"Articles in {magazine_1.name}: {[article.title for article in magazine_1.articles()]}")
+print(f"Article Titles in {magazine_2.name}: {[article.title for article in magazine_2.articles()]}")
